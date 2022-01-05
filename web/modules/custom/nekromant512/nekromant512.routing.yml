@@ -1,0 +1,7 @@
+nekromant512.form:
+  path: '/nekromant512/cats'
+  defaults:
+    _title: 'Cats'
+    _controller: '\Drupal\nekromant512\Controller\Nekromant512Controller::build'
+  requirements:
+    _permission: 'access content'
