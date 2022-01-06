@@ -22,3 +22,4 @@ class Nekromant512Controller extends ControllerBase {
   }
 
 }
+
