@@ -1,7 +1,7 @@
 nekromant512.form:
   path: '/nekromant512/cats'
   defaults:
-    _title: 'Cats'
-    _controller: '\Drupal\nekromant512\Controller\Nekromant512Controller::build'
+    _title: 'Hello! You can add here a photo of your cat.'
+    _form: '\Drupal\nekromant512\Form\CatForm'
   requirements:
     _permission: 'access content'
