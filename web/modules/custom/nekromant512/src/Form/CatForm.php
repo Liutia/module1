@@ -58,11 +58,10 @@ class CatForm extends FormBase {
    */
   public function ajaxSubmit (array &$form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
-    $valideName = $this->validateName($form, $form_state);
-    if ($valideName == '<2'){
+    if (strlen($form_state->getValue('name')) < 2){
       $css = ['border' => '1px solid red'];
       $message = $this->t('Name must be more 2');
-    } elseif ($valideName == '>32') {
+    } elseif (strlen($form_state->getValue('name')) > 32) {
       $css = ['border' => '1px solid green'];
       $message = $this->t('Name must be not more 32');
     } else {
@@ -75,20 +74,6 @@ class CatForm extends FormBase {
   }
 
   public function validateForm(array &$form, FormStateInterface $form_state) {
-
-  }
-
-  public fuction validateName(array &$form, FormStateInterface $form_state) {
-    if (strlen($form_state->getValue('name')) < 2) {
-      $res = '<2';
-    }
-    elseif (strlen($form_state->getValue('name')) > 32) {
-      $res = '>32';
-    }
-    else {
-      $res = 'valide';
-    }
-    return $res;
 
   }
 
