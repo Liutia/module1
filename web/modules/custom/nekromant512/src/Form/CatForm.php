@@ -26,7 +26,7 @@ class CatForm extends FormBase {
 
     $form['message'] = [
       '#type' => 'markup',
-      '#markup' => '<div class="resulr_message"></div>',
+      '#markup' => '<div class="result_message"></div>',
     ];
 
     $form['actions']['submit'] = [
@@ -69,7 +69,8 @@ class CatForm extends FormBase {
       $css = ['border' => '1px solid green'];
       $message = $this->t('Name is valide');
     }
-    $response->addCommand(new CssCommand('#
+    $response->addCommand(new CssCommand('#result_message', $css));
+    $response->addCommand(new HtmlCommand('.result_message', $message));
 
   }
 
@@ -78,15 +79,16 @@ class CatForm extends FormBase {
   }
 
   public fuction validateName(array &$form, FormStateInterface $form_state) {
-    if (strlen($form_state->getValue('title')) < 2) {
-      return '<2';
+    if (strlen($form_state->getValue('name')) < 2) {
+      $res = '<2';
     }
-    elseif (strlen($form_state->getValue('title')) > 32) {
-      return '>32';
+    elseif (strlen($form_state->getValue('name')) > 32) {
+      $res = '>32';
     }
     else {
-      return 'valide';
+      $res = 'valide';
     }
+    return $res;
 
   }
 
