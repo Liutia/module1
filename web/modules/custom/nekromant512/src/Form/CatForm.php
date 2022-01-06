@@ -43,4 +43,19 @@ class CatForm extends FormBase {
     $this->messenger()->addMessage($this->t('You cat name: %title.', ['%title' => $title]));
 
   }
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    if(strlen($form_state->getValue('title')) <2) {
+      $form_state->setErrorByName(
+        'title',
+        $this->t('Error. Name must be at least 2 letter'));
+    }
+    elseif (strlen($form_state->getValue('title')) > 32) {
+      $form_state->setErrorByName(
+        'title',
+        $this->t('Error. Name must be no more 32 letter'));
+    }
+  }
+
 }
+
+
